@@ -1,0 +1,45 @@
+body{
+    background-color: palevioletred;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+    text-align: center;   
+}
+.container{
+    display: ruby;
+    align-items: center;
+    position: relative;
+    left: 400px;
+}
+.btn{
+    width: 15vh;
+    height: 6vh;
+    margin-top: 40vh;
+    margin-right: 10px;
+    background-color: skyblue;
+    color: black;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 0;
+    font-size: 15px;
+}
+#stop{
+    text-align: center;
+    width: 15vh;
+    height: 6vh;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    
+    border: 0;
+    font-size: 15px;
+    margin-left: 270px;
+    color:cornsilk;
+    background-color: red;
+    display: flow-root;
+}    

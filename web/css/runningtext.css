@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@200&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: "Roboto",sans-serif;
+    background-color: darksalmon;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    position: absolute;
+    bottom: 10px;
+    background:rgba(0, 0,0, 0.1);
+    padding:10px;
+    font-size: 1.5em;
+}
+.speed{
+    background-color: darksalmon;
+    font-size: 1em;
+    border: none;
+}
+.speed:focus{
+    outline: none;
+}

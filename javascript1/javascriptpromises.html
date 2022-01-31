@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // const fetchfileInformation = function(){
+        //     return new Promise(function(resolve,reject){
+        //         console.log('Fetching Information...')
+        //         setTimeout(function(){
+        //             resolve('It took 5 secs to lead the profile')
+        //         },5000)
+        //     })
+        // }
+
+        // fetchProfileInformation().then(function(resolvedMessage){
+        //     console.log('This Promise was resolved, with the message-',resolvedMessage)
+        // }).catch(function(rejectedMessage){
+        //     console.log('This Promise was rejected, with the message -',rejectedMessage)
+        // })
+
+        // const fetchStudentDataFromServer = () => {
+    //   return new Promise((resolve, reject) => {
+    //     console.log('Fetching student data ...')
+    //     setTimeout(() => {
+    //       console.log('Data fetched successfully after 4 secs!')
+    //       resolve([
+    //         {
+    //           name: 'Prajakta',
+    //           batch: 'Batch 11',
+    //         },
+    //         {
+    //           name: 'Pratik',
+    //           batch: 'Batch 12',
+    //         }
+    //       ])
+    //     }, 4000)
+    //   })
+    // }
+
+    // fetchStudentDataFromServer().then(function (studentData) {
+    //   return studentData.filter(student => {
+    //     return student.batch === 'Batch 12'
+    //   })
+    // }).then(function (updatedStudentData) {
+    //   console.log(updatedStudentData[0].name)
+    // })
+
+    // let promise = new Promise(function (resolve, reject) {
+    //   resolve(' A ')
+    // })
+
+    // Promise chaining
+    // promise.then(function(resolvedMessage) {
+    //   return resolvedMessage + ' B ' 
+    // }).then(function(updatedMessage) {
+    //   return updatedMessage + ' C '
+    // }).then(function(updatedMessage2) {
+    //   console.log(updatedMessage2)
+    // })
+
+    // let promise1 = new Promise(function(resolve,reject){
+    //     setTimeout(function(){
+    //         resolve('Resolving Promise 1')
+    //     },2000)
+    // })
+
+    // let promise2 = new Promise(function(resolve, reject){
+    //     setTimeout(function(){
+    //         resolve('Resolving Promise 2')
+    //     },1000)
+    // })
+    // promise1.then(function(resolvedMessage){
+    //     console.log(resolvedMessage)
+    // })
+
+    // promise2.then(function(resolvedMessage){
+    //     console.log(resolvedMessage)
+    // })    
+
+    // promise1.then(promise2).then(function(resolvedMessage){
+    //     console.log(resolvedMessage)
+    // })
+
+    // promise1.then(function(resolvedMessage){
+    //   console.log(resolvedMessage)
+    //   return promise2
+    // }).then(function(resolvedMessage){
+    //     console.log(resolvedMessage)
+    // })
+
+    // let fetchInformationFromServer = new Promise(function(resolve,reject){
+    //     console.log('Fetching Data ...')
+    //     setTimeout(function(){
+    //         resolve('Fetched Data Successfully')
+    //     },3000)
+    // })
+
+    //  let processfetchedInformation = new Promise(function(resolve, reject){
+    //      console.log('Processing fetched data ...')
+    //     setTimeout(function(){
+    //         resolve('Processed fetched data successfully')
+    //     },4000)
+    // })
+
+    // fetchInformationFromServer.then(function(resolvedMessage){
+    //   console.log(resolvedMessage)
+    //   return processFetchedInformation
+    // }).then(function(resolvedMessage){
+    //     console.log(resolvedMessage)
+    // })
+    
+    // CALLBACK HELL
+    // const executeOrder = function(){
+    //     return new Promise(function(resolve,reject){
+    //         console.log('Order placed')
+    //         setTimeout(function() {
+    //             console.log('Order Received!')
+    //             console.log('Chef started preparing!')
+    //             setTimeout(function() {
+    //                 console.log('Pizza Sauce added!')
+    //                 setTimeout(function() {
+    //                     console.log('First layer of cheeze added!')
+    //                     setTimeout(function() {
+    //                         console.log('Toppings added!')
+    //                         setTimeout(function() {
+    //                             console.log('Final layer of cheeze added!')
+    //                             setTimeout(function() {
+    //                                 console.log('Pizza baked!')
+    //                                 setTimeout(function() {
+    //                                     console.log('Oregano added and packed!')
+    //                                     resolve()
+    //                                 }, 4000)
+    //                             }, 8000)
+    //                         }, 2000)
+    //                     }, 4000)
+    //                 }, 3000)
+    //             }, 5000)
+    //         }, 2000)
+    //     })
+      
+    // }
+
+    // const oreganoAddedAndPacked = ()=>{
+    //     return new Promise(function (resolve,reject){
+    //         settimeout(function(){
+    //             console.log('Oregano added and packed!')
+    //         },4000)
+    //     })
+    // }
+
+    // executeOrder(function(){
+    //     console.log('The Order is ready and handed over to the zomato guy!')
+    // })
+
+    const executeOrder = function () {
+      return new Promise(function (resolve, reject) {
+        console.log('Order placed')
+        setTimeout(function () {
+          console.log('Order Received!')
+          console.log('Chef started preparing!')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    const addPizzaSauce = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(function () {
+          console.log('Pizza Sauce added!')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    const addFirstCheezeLayer = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(function () {
+          console.log('First layer of cheeze added!')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    const addToppings = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(function () {
+          console.log('Toppings added!')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    const addFinalCheezeLayer = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('Final layer of cheeze added!')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    const bakePizza = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('Pizza baked!')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    const addOreganoAndPack = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('Oregano added and packed!')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    executeOrder()
+    .then(addPizzaSauce)
+    .then(addFirstCheezeLayer)
+    .then(addToppings)
+    .then(addFinalCheezeLayer)
+    .then(bakePizza)
+    .then(addOreganoAndPack)
+    .then(function () {
+      console.log('The order is ready and handed over to the Zomato guy!')
+    })
+
+    
+    </script>
+
+</body>
+</html>
