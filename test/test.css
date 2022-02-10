@@ -1,0 +1,126 @@
+*{
+    background-color: antiquewhite;
+}
+
+body{
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 1.5;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
+
+h3{
+    text-align:  center;
+    color: brown;
+}
+
+.typewriter h2{
+    text-align: center;
+    color: maroon;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid antiquewhite; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+/* The typing effect */
+ @keyframes typing {
+    from { width: 0 }
+    to { width: 60% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    30% { border-color: antiquewhite; }
+}
+  
+
+#levels{
+    height: 50px;
+    width: 100px;
+    font-size: 20px ;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 80%;
+    display: inline-block;
+
+}
+
+/* .conatiner1{
+    display: inline-block;
+    text-align: center;
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+} */
+
+#button1{
+    font-size: 1.5 rem;
+    margin: 25px;
+    background-color: #1A8793;
+    border: none;
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.timer {
+    position: absolute;
+    top: 2rem;
+    font-size: 3rem;
+    color: #0A3338;
+    font-weight: bold;
+  }
+  
+  .quote-display {
+    margin-bottom: 1rem;
+    margin-left: calc(1rem + 2px);
+    margin-right: calc(1rem + 2px);
+  }
+  
+  .quote-input {
+    background-color: transparent;
+    border: 2px solid #0A3338;
+    outline: none;
+    width: 100%;
+    height: 8rem;
+    margin: auto;
+    resize: none;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+  }
+  
+  .quote-input:focus {
+    border-color: black;
+  }
+  
+  .correct {
+    color: green;
+  }
+  
+  .incorrect {
+    color: red;
+    text-decoration: underline;
+  }
+  
+
+
+
+

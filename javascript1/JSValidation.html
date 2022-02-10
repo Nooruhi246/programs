@@ -7,18 +7,17 @@
     <title>Form validation</title>
 </head>
 <body>
-   
+    <form id="myform">
         <input type="email" id="email" placeholder="Enter Your Email">
-        <button type="submit" onclick="myFunction()">Submit</button>
+        <button type="button">Submit</button>
   
-
+    </form>
+   
+        
     <script>
-        function validateForm() {
-            let x = document.getElementById("email").value;
-            if (x == " ") {
-                alert("Enter Your Email Address");
-            }
-        }
+        document.getElementById("myform").addEventListener("submit",function(e){
+            e.preventDefault()
+        });
     </script>
 </body>
 </html>
