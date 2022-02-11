@@ -98,11 +98,23 @@ h3{
 .timer {
     /*position: absolute;*/
     text-align: center;
-    padding-top: 100px;
+    padding-top: 15px;
     font-size: 3rem;
-    color: cornsilk;
+    color: black;
     font-weight: bold;
-  }
+    background-image: url(alarm.png);
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    padding-bottom: 15px;
+
+}
+/* .d1{
+  background-image: url(alarm.png);
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+}  */
   
   .quote-display {
     margin-bottom: 1rem;
