@@ -83,3 +83,6 @@ function addTodo(){
 
 // add.addEventListener('click', addTodo);
 
+function go(){
+	location.href= "draganddrop1.html";
+}
