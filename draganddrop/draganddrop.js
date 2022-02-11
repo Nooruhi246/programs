@@ -70,14 +70,15 @@ function addTodo(){
     if(todoText != ''){
         input.value = '';
 
-		var div = document.createElement('div');
+		var li = document.createElement('li');
+		var ul = document.querySelector('ul')
 		var attr = document.createAttribute('draggable');
-		div.className = 'list-item';
-		attr.value = 'true';
-		div.setAttributeNode(attr);
+		li.className = "list-item";
+		attr.value = "true";
+		li.setAttributeNode(attr);
 
-		div.appendChild(document.createTextNode(todoText));
-		lists.appendChild(div);
+		li.appendChild(document.createTextNode(todoText));
+		ul.appendChild(li);
     }
 }
 
