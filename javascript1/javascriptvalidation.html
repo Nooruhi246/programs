@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up form</title>
+    <style>
+    /* --------------------
+     Add your styling here
+     -------------------- */
+    </style>
+</head>
+<body>
+<div class="sign-up-form">
+    <!----------------------
+    Add your markup here
+    ------------------------>
+  <form name="myform">
+    <label>First Name</label>&nbsp;&nbsp;<input type="text" id="FirstName" onchange="validate()"><br><br>
+    <span id='first-info'></span><br><br>
+    <label>Last Name</label>&nbsp;&nbsp;&nbsp;<input type="text" id="LastName" onchange="last()"><br><br>
+    <span id='last-info'></span><br><br>
+    <label>Email Address</label>&nbsp;&nbsp;&nbsp;<input type="email" id="email" onchange="validate()"><br><br>
+    <span id='email-info'></span><br><br>
+    <label>Enter Password</label>&nbsp;&nbsp;&nbsp;<input type="password" id="password" onchange="checkPassword()"><br><br>
+    <span id='pass-info'></span><br><br>
+    <label>Confirm Password</label>&nbsp;&nbsp;&nbsp;<input type="password" id="confirmpassword" onchange="checkconfirmPassword()"><br><br>
+    <span id='conpass-info'></span><br><br>
+    <button type="submit-button">Submit</button>
+  </form>
+</div>
+<script>
+    /* --------------------
+     Add your code here
+    --------------------- */
+//   let firstname = document.getElementById('FirstName').value;
+//   let lastname = document.getElementById('LastName').value;
+//   let email = document.getElementById('email').value;
+//   let password = document.getElementById('password');
+//   let confirmpassword = document.getElementById('confirmpassword');
+
+//   let first_info = document.getElementById('first-info');
+//   let last_info = document.getElementById('last-info');
+//   let email_info = document.getElementById('email-info');
+//   let pass_info = document.getElementById('pass-info');
+//   let conpass_info = document.getElementById('conpass-info');
+  
+//   function first(){
+
+//     if(firstname == ''){
+//       first_info.innerText = 'Enter First name'
+//       //alert("Enter First name")
+//     }else if(firstname.length == 1){
+//       first_info.innerText = 'Enter Valid Name'
+//       //alert("Enter First name")
+
+//     }
+//   }
+  
+//   function last(){
+//         if(lastname.value == ''){
+//       last_info = "Enter Last name"
+//       alert("Enter Last name")
+
+//     }else if(lastname.length == 1){
+//       last_info = 'Enter Valid Name'
+//       alert("Enter Last name")
+
+//     }
+//   }
+  
+  function validate(){
+      let emailInput = document.getElementById('email').value;
+      let inputInfoDisplay = document.getElementById('email-info')
+
+      let firstname = document.getElementById('FirstName').value;
+      let first_info = document.getElementById('first-info');
+
+      let lastname = document.getElementById('LastName').value;
+      let last_info = document.getElementById('last-info');
+
+      let indexOfa = emailInput.indexOf('@')
+
+      let inputInfo = ''
+
+      inputInfoDisplay.style.color = 'red'
+
+      if(firstname == ''){
+          inputInfo = 'Enter First Name'
+      }
+
+      if(emailInput.indexOf('@') === -1)
+        inputInfo = 'Email not valid - @ missing!'
+      else if(emailInput.indexOf('@') < 1)
+        inputInfo = 'Email not valid - Atleast one character required before @ symbol!'
+      else if(emailInput.length - emailInput.lastIndexOf('.') <= 2)
+        inputInfo = 'Email not valid - After the last dot, there should be atleast 2 characters!'
+      else if(emailInput.indexOf(' ') != -1)
+        inputInfo = 'Email not valid - Cannot contain space!'
+      else if(emailInput[indexOfa - 1] === '.' || emailInput[indexOfa - 1] === '-' || emailInput[indexOfa - 1] === '_')
+        inputInfo = 'Email not valid - Atleast one character after these . - _!'
+      else if(emailInput.charCodeAt(0) < 97 || emailInput.charCodeAt(0) > 122)
+        inputInfo = 'Email not valid - No special characters, capital letters or numbers as first character allowed!'
+      else{
+        inputInfo = 'Valid email address'
+        inputInfoDisplay.style.color = 'green'
+      }
+      
+      inputInfoDisplay.innerText = inputInfo
+    }
+
+    function checkPassword(){
+      let passwordInput = document.getElementById('password').value
+      let passwordInfo = document.getElementById('pass-info')
+
+      if(passwordInput.length < 4){
+        passwordInfo.innerText = 'WEAK'
+        passwordInfo.style.color='red'
+      }
+      else if(passwordInput.length < 7){
+        passwordInfo.innerText = 'GOOD'
+        passwordInfo.style.color='orange'
+      }
+      else{
+        passwordInfo.innerText = 'STRONG'
+        passwordInfo.style.color='green'
+      }
+    }
+
+  
+  function checkconfirmPassword(){
+    if(confirmpassword.value == ''){
+      conpass_info = "Re-Enter the password"
+      alert("Re-Enter Password ")
+
+    }else if(password !== confirmpassword){
+      conpass_info = "Check and Re-Enter the password "
+      alert("Re-Enter Password")
+
+    }
+    
+  }
+</script>
+</body>
+</html> 
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Validation</title>
+  <script>
+    function validate(){
+      let emailInput = document.getElementById('email-input').value
+
+      let inputInfoDisplay = document.getElementById('input-info')
+      
+      /*
+        ank@gmail.co
+        1. @ symbol should be present
+        2. Atleast one character before @ symbol
+        3. After last dot, there should be atleast 2 characters
+        [Additional Checks] : Shouldn't have space, No special characters, capital letters or numbers as first character, Atleast one character after these . - _
+      */
+
+      let indexOfa = emailInput.indexOf('@')
+
+      let inputInfo = ''
+
+      inputInfoDisplay.style.color = 'red'
+
+      if(emailInput.indexOf('@') === -1)
+        inputInfo = 'Email not valid - @ missing!'
+      else if(emailInput.indexOf('@') < 1)
+        inputInfo = 'Email not valid - Atleast one character required before @ symbol!'
+      else if(emailInput.length - emailInput.lastIndexOf('.') <= 2)
+        inputInfo = 'Email not valid - After the last dot, there should be atleast 2 characters!'
+      else if(emailInput.indexOf(' ') != -1)
+        inputInfo = 'Email not valid - Cannot contain space!'
+      else if(emailInput[indexOfa - 1] === '.' || emailInput[indexOfa - 1] === '-' || emailInput[indexOfa - 1] === '_')
+        inputInfo = 'Email not valid - Atleast one character after these . - _!'
+      else if(emailInput.charCodeAt(0) < 97 || emailInput.charCodeAt(0) > 122)
+        inputInfo = 'Email not valid - No special characters, capital letters or numbers as first character allowed!'
+      else{
+        inputInfo = 'Valid email address'
+        inputInfoDisplay.style.color = 'green'
+      }
+      
+      inputInfoDisplay.innerText = inputInfo
+    }
+
+    function checkPasswordStrength(){
+      let passwordInput = document.getElementById('password-input').value
+      let passwordInfo = document.getElementById('password-info')
+
+      if(passwordInput.length < 4){
+        passwordInfo.innerText = 'WEAK'
+        passwordInfo.style.color='red'
+      }
+      else if(passwordInput.length < 7){
+        passwordInfo.innerText = 'GOOD'
+        passwordInfo.style.color='orange'
+      }
+      else{
+        passwordInfo.innerText = 'STRONG'
+        passwordInfo.style.color='green'
+      }
+    }
+  </script>
+  <style>
+    span{
+      font-size: 0.7em;
+    }
+  </style>
+</head>
+<body>
+  <form id='form1'>
+    <input type='text' placeholder='Type your email address' id='email-input' onchange="validate()" autocomplete="off"><br>
+    <span id='input-info'></span><br><br>
+    <input type='password' id='password-input' onkeydown="checkPasswordStrength()"><br>
+    <span id='password-info'></span><br><br>
+    <button id='submit-button' type='button'>Submit</button>
+  </form>
+  <script>
+    document.getElementById("form1").addEventListener("submit", function(e){
+      e.preventDefault()
+    });
+  </script>
+</body>
+</html>-->
+
+
+<!-- 
+  Design the JS Validation for Password Strength 
+  < 4 characters - Weak
+  > 4 and < 7 characters - Good
+  > 7 - Strong
+  [Additional Pointers are also encouraged]
+-->
+
