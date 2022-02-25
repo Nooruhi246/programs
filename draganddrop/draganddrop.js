@@ -3,49 +3,102 @@ const lists = document.querySelectorAll('.list');
 const input = document.getElementById('myInput');
 const add = document.getElementById('.addBtn')
 
+function update(){
+	// let draggedItem = null;
 
-let draggedItem = null;
-
-for (let i = 0; i < list_items.length; i++) {
-	const item = list_items[i];
-
-	item.addEventListener('dragstart', function () {
-		draggedItem = item;
-		setTimeout(function () {
-			item.style.display = 'none';
-		}, 0)
-	});
-
-	item.addEventListener('dragend', function () {
-		setTimeout(function () {
-			draggedItem.style.display = 'block';
-			draggedItem = null;
-		}, 0);
+	// for (let i = 0; i < list_items.length; i++) {
+	// 	const item = list_items[i];
+	
+	// 	item.addEventListener('dragstart', function () {
+	// 		draggedItem = item;
+	// 		setTimeout(function () {
+	// 			item.style.display = 'none';
+	// 		}, 0)
+	// 	});
+	
+	// 	item.addEventListener('dragend', function () {
+	// 		setTimeout(function () {
+	// 			draggedItem.style.display = 'block';
+	// 			draggedItem = null;
+	// 		}, 0);
+	// 	})
+	
+	// 	for (let j = 0; j < lists.length; j ++) {
+	// 		const list = lists[j];
+	
+	// 		list.addEventListener('dragover', function (e) {
+	// 			e.preventDefault();
+	// 		});
+			
+	// 		list.addEventListener('dragenter', function (e) {
+	// 			e.preventDefault();
+	// 			this.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+	// 		});
+	
+	// 		list.addEventListener('dragleave', function (e) {
+	// 			this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+	// 		});
+	
+	// 		list.addEventListener('drop', function (e) {
+	// 			console.log('drop');
+	// 			this.append(draggedItem);
+	// 			this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+	// 		});
+	// 	}
+	// }
+	const listItems = document.querySelectorAll(".list-item")
+	const lists = document.querySelectorAll(".list")
+	
+	let draggedItem=''
+	
+	listItems.forEach((item)=>{
+	  item.addEventListener("dragstart", ()=>{
+		draggedItem=item
+		setTimeout(()=>{
+		  item.style.display= 'none'
+		},0)
+	  })
+	
+	  item.addEventListener("dragend", ()=>{
+		setTimeout(()=>{
+		  draggedItem.style.display = 'block'
+		  draggedItem=''
+		},0)
+	  })
+	
+	  item.addEventListener("contextmenu",(e)=>{
+		e.preventDefault()
+		item.remove()
+	  })
+	
+	  lists.forEach((list)=>{
+	
+		list.addEventListener("dragover", (e)=>{
+		  e.preventDefault()
+		})
+	
+		list.addEventListener("dragenter", function (e){
+		  e.preventDefault()
+		  this.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'
+		})
+	
+		list.addEventListener("dragleave", function(){
+		  this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'
+		})
+	
+		list.addEventListener("drop", function (){
+		  list.append(draggedItem)
+		  this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'
+		})
+	
+	  })
+	
 	})
-
-	for (let j = 0; j < lists.length; j ++) {
-		const list = lists[j];
-
-		list.addEventListener('dragover', function (e) {
-			e.preventDefault();
-		});
-		
-		list.addEventListener('dragenter', function (e) {
-			e.preventDefault();
-			this.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
-		});
-
-		list.addEventListener('dragleave', function (e) {
-			this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-		});
-
-		list.addEventListener('drop', function (e) {
-			console.log('drop');
-			this.append(draggedItem);
-			this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-		});
-	}
+  
+	
 }
+
+update()
 
 // function showHide() {
 //     let task = document.getElementById('addtask')
@@ -65,22 +118,31 @@ function showHide(){
 }
 
 
-function addTodo(){
+addBtn.addEventListener("click",(e)=>{
+	e.preventDefault()
     let todoText = input.value;
     if(todoText != ''){
         input.value = '';
 
-		var li = document.createElement('li');
-		var ul = document.querySelector('ul')
-		var attr = document.createAttribute('draggable');
-		li.className = "list-item";
-		attr.value = "true";
-		li.setAttributeNode(attr);
+		var div = document.createElement('div');
+		var lists = document.querySelector('lists')
+		// var attr = document.createAttribute('draggable');
+		// div.className = "list-item";
+		// attr.value = "true";
+		// div.setAttributeNode(attr);
 
-		li.appendChild(document.createTextNode(todoText));
-		ul.appendChild(li);
+		// div.appendChild(document.createTextNode(todoText));
+		// list.appendChild(div);
+		div.classList.add("list-item")
+		div.setAttribute("draggable","true")
+		div.innexText = todoText
+		lists.appendChild(div)
+		update()
     }
-}
+	else{
+		alert("Enter the Task")
+	}
+})
 
 // add.addEventListener('click', addTodo);
 

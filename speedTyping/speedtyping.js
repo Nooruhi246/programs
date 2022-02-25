@@ -21,13 +21,13 @@ quote_Input.addEventListener('input',() => {
    const arrayQuote = quote_Display.querySelectorAll('span')
    const arrayValue = quote_Input.value.split('')
 
-   let incorrect=true
+   let correct=true
    arrayQuote.forEach((characterSpan,index)=>{
        const character = arrayValue[index]
        if(character == null){
            characterSpan.classList.remove('correct')
            characterSpan.classList.remove('incorrect')
-           incorrect=false
+           correct=false
        }
       else if(character === characterSpan.innerText){
            characterSpan.classList.add('correct')
@@ -39,7 +39,7 @@ quote_Input.addEventListener('input',() => {
            correct=false
        }
    })
-   if(incorrect) renderNewQuote()
+   if(correct) renderNewQuote()
 })
 
 
