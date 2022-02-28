@@ -1,0 +1,51 @@
+@import url('https://fonts.goggleapis.com/css2?family-Poppins:wgbt@300&display-swap');
+
+@mixin common($a,$b,$c,$d,$e){
+    display:flex;
+    flex-direction: $a;
+    justify-content: $b;
+    align-items:$c;
+    width:$d;
+    height:$e;
+    background: $f;
+}
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    body{
+        @include common(column,center,center,100%,null,null);
+        min-height:100vh;
+        font-family:'Poppins';
+    }
+}
+
+.container{
+    width: 80%;
+    .title{
+        text-align:center;
+    }
+}
+
+input[type="checkbox"]{
+    display:none;
+}
+
+$scale: 300px;
+
+.box{
+    width:$scale;
+    height:$scale/2;
+    background-color: #000;
+    border-radius:$scale/4;
+    cursor:pointer;
+    .ball{
+        width:$scale/2;
+        height:$scale/2;
+        background-color: grey;
+        border-radius: 50%;
+        border: 3px solid black;
+    }
+}
