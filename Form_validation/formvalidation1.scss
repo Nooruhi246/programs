@@ -22,30 +22,58 @@
     }
 }
 
+
 .container{
-    width: 80%;
+    display: flex;
+    flex-direction:column;
+    width:80%;
+    @media (min-width:500px){
+      width:50%;
+    }
     .title{
-        text-align:center;
+      text-align:center;
+    }
+    .content{
+      text-align:justify;
+    } 
+  //   for hiding the small tick box
+    input[type="checkbox"]{
+      display: none;
     }
 }
-
-input[type="checkbox"]{
-    display:none;
+  
+  // Style rules for the .btn class
+  
+.btn{
+    align-self:center;
+    margin:15px 0;
 }
-
-$scale: 300px;
-
+  
+  // Style rules for the .box class
+  
 .box{
-    width:$scale;
-    height:$scale/2;
-    background-color: #000;
+    @include common(flex,column,center,null,$scale,$scale/2,black);
+    position:relative;
     border-radius:$scale/4;
     cursor:pointer;
+    
+  //   Style rules for the roller .ball class
+    
     .ball{
-        width:$scale/2;
-        height:$scale/2;
-        background-color: grey;
-        border-radius: 50%;
-        border: 3px solid black;
+      @include common(null,null,null,null,$scale/2,$scale/2,grey);
+      position:absolute;
+      border-radius:50%;
+      border: 3px solid black;
+    }
+    
+  //   Style rules for the .scenary(.sun, .moon) class
+    
+    .scenary{
+      @include common(flex, row, space-between,null,null,null,null);
+      padding: 5px 10px 0px 10px;
+      svg{
+        width:$scale/3;
+      }
     }
 }
+  

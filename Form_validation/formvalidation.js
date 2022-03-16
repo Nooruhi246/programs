@@ -2,7 +2,7 @@ let id = (id)=> document.getElementById(id);
 
 let classes = (classes)=> document.getElementsByClassName(classes);
 
-
+let body = document.body
 
 let username = id("username"),
  email = id("email"),
@@ -11,6 +11,9 @@ let username = id("username"),
  errorMsg = classes("error"),
  successIcon = classes("success-icon"),
  failureIcon = classes("failure-icon");
+ check = id("check");
+ box = classes("box");
+ ball = classes("ball");
 
 
 form.addEventListener("submit", (e) => {
