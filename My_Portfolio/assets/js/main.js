@@ -139,3 +139,28 @@ const sr = ScrollReveal({
 sr.reveal(`.home__data`)
 sr.reveal(`.home__handle`,{delay:700})
 sr.reveal(`.home__social, .home__scroll`,{delay: 900, origin: 'bottom'})
+
+
+
+/*=============== Experience MODAL ===============*/
+const experienceViews = document.querySelectorAll('.experience__modal'),
+      experienceBtns = document.querySelectorAll('.experience__button'),
+      experienceClose = document.querySelectorAll('.experience__modal-close');
+
+let expmodal = function(modalClick){
+    experienceViews[modalClick].classList.add('exactive-modal')
+}
+
+experienceBtns.forEach((mb, i) => {
+    mb.addEventListener('click',()=>{
+        expmodal(i)
+    })
+})
+
+experienceClose.forEach((mc) => {
+    mc.addEventListener('click',()=> {
+        experienceViews.forEach((mv) => {
+            mv.classList.remove('exactive-modal')
+        })
+    })
+})
